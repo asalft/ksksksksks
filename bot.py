@@ -85,13 +85,13 @@ final = Client("youtube_audio_bot", api_id=API_ID, api_hash=API_HASH, bot_token=
 @final.on_message(filters.command("start"))
 async def start(client, message):
     await message.reply("مرحبا!\n"
-    f"ارسل يوت+ اسم الاغنيه \n"
-    f" المطور @ky_nx")
+    f"```ارسل يوت+ اسم الاغنيه \n```"
+    f" ```المطور @Ky_n0```")
 
 @final.on_message(filters.regex(r"^يوت (.+)"))
 async def download_audio(client, message):
     query = message.text.split(" ", 1)[1]
-    wait_message = await message.reply("⏳ جاري البحث عن وتحميل الصوت... 🎧")
+    wait_message = await message.reply("```⏳ جاري البحث عن وتحميل الصوت... 🎧```")
 
     ydl = YoutubeDL(YDL_OPTIONS)
     try:
@@ -109,7 +109,7 @@ async def download_audio(client, message):
             await wait_message.delete()
             os.remove(file_path)
         else:
-            await wait_message.edit("🚫 لم يتم العثور على نتائج للبحث.")
+            await wait_message.edit("```🚫 لم يتم العثور على نتائج للبحث.```")
     except Exception as e:
         await wait_message.edit(f"🚫 حدث خطأ أثناء التحميل:\n{e}")
     finally:
