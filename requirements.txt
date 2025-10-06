@@ -2,4 +2,5 @@ requests
 telegram
 telethon
 pyrogram
+yt_dlp
 
