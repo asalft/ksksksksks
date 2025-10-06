@@ -4,4 +4,5 @@ telethon
 pyrogram
 yt_dlp
 ffmpeg
+ffprobe
 
